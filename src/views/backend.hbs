@@ -1,0 +1,210 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML5 Admin Template</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700"
+      rel="stylesheet"
+    />
+
+    <!-- Template Styles -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="assets/css/milligram.min.css" />
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+   
+    <div class="row">
+      <div id="sidebar" class="column">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#"><em class="fa fa-home"></em> Productos</a></li>
+          <li><a href="#servicios"><em class="fa fa-bar-chart"></em>
+              Servicios</a></li>
+         
+        </ul>
+      </div>
+      <section id="main-content" class="column column-offset-20">
+          <div class="card">
+    <div class="card-header">
+      <h1>Productos</h1>
+    </div>
+    <div class="card-body">
+      {{#if products}}
+        <ul class="list-group">
+          {{#each products}}
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              {{title}}
+              /
+              {{desc}}
+              /
+              {{precio}}
+              /
+              {{foto}}
+              <a
+                href="/delete-product/{{@key}}"
+                class="btn btn-danger"
+              >Delete</a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>No Products Yet.</p>
+      {{/if}}
+    </div>
+    <div class="card-footer">
+      <form action="/new-product" method="POST">
+        <div class="form-group">
+          <input
+            type="text"
+            name="title"
+            placeholder="Titulo"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="desc"
+            placeholder="Descripcion"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="precio"
+            placeholder="Precio"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="foto"
+            placeholder="Foto"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-primary btn-block">
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+  
+        <a class="anchor" name="servicios"></a>
+    <div class="card">
+    <div class="card-header">
+      <h1>Servicios</h1>
+    </div>
+    <div class="card-body">
+      {{#if servicios_db}}
+        <ul class="list-group">
+          {{#each servicios_db}}
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              {{title}}
+              /
+              {{desc}}
+              /
+              {{precio}}
+              /
+              {{foto}}
+              <a
+                href="/delete-servicio/{{@key}}"
+                class="btn btn-danger"
+              >Delete</a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>No Servicios Yet.</p>
+      {{/if}}
+    </div>
+    <div class="card-footer">
+      <form action="/new-servicio" method="POST">
+        <div class="form-group">
+          <input
+            type="text"
+            name="title"
+            placeholder="Titulo"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="desc"
+            placeholder="Descripcion"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="precio"
+            placeholder="Precio"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="foto"
+            placeholder="Foto"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-primary btn-block">
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/chart-data.js"></script>
+    <script>
+      window.onload = function () { var chart1 =
+      document.getElementById("line-chart").getContext("2d"); window.myLine =
+      new Chart(chart1).Line(lineChartData, { responsive: true, scaleLineColor:
+      "rgba(0,0,0,.2)", scaleGridLineColor: "rgba(0,0,0,.05)", scaleFontColor:
+      "#c5c7cc" }); var chart2 =
+      document.getElementById("bar-chart").getContext("2d"); window.myBar = new
+      Chart(chart2).Bar(barChartData, { responsive: true, scaleLineColor:
+      "rgba(0,0,0,.2)", scaleGridLineColor: "rgba(0,0,0,.05)", scaleFontColor:
+      "#c5c7cc" }); var chart4 =
+      document.getElementById("pie-chart").getContext("2d"); window.myPie = new
+      Chart(chart4).Pie(pieData, { responsive: true, segmentShowStroke: false
+      }); var chart5 = document.getElementById("radar-chart").getContext("2d");
+      window.myRadarChart = new Chart(chart5).Radar(radarData, { responsive:
+      true, scaleLineColor: "rgba(0,0,0,.05)", angleLineColor: "rgba(0,0,0,.2)"
+      }); var chart6 =
+      document.getElementById("polar-area-chart").getContext("2d");
+      window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+      responsive: true, scaleLineColor: "rgba(0,0,0,.2)", segmentShowStroke:
+      false }); };
+    </script>
+
+  </body>
+</html>

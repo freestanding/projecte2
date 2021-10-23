@@ -1,0 +1,31 @@
+<main class="flex-shrink-0 mb-5 mt-4">
+  <div class="container">
+    <div class="p-5 rounded">
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {{#if products}}
+      {{#each products}}
+
+        <div class="col">
+          <div class="card">
+            <img src="assets/img/{{foto}}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <h5 class="card-title">{{title}}</h5>
+              <p class="card-text">
+                {{desc}}
+                <br /><br />
+                <b>Precio:</b>
+                {{precio}}€
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No Products Yet.</p>
+    {{/if}}
+
+  </div>
+</main>

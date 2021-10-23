@@ -1,0 +1,72 @@
+<div class="col-md-6 offset-md-3">
+  <div class="card">
+    <div class="card-header">
+      <h1>Productos</h1>
+    </div>
+    <div class="card-body">
+      {{#if products}}
+        <ul class="list-group">
+          {{#each products}}
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              {{title}}
+              /
+              {{desc}}
+              /
+              {{precio}}
+              /
+              {{foto}}
+              <a
+                href="/delete-product/{{@key}}"
+                class="btn btn-danger"
+              >Delete</a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>No Products Yet.</p>
+      {{/if}}
+    </div>
+    <div class="card-footer">
+      <form action="/new-product" method="POST">
+        <div class="form-group">
+          <input
+            type="text"
+            name="title"
+            placeholder="Titulo"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="desc"
+            placeholder="Descripcion"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="precio"
+            placeholder="Precio"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="foto"
+            placeholder="Foto"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-primary btn-block">
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
