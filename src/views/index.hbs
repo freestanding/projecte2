@@ -1,3 +1,6 @@
+<style>
+  .imgindex{ height: 420; }
+</style>
 <main class="flex-shrink-0 mb-5 mt-4">
   <div class="container">
     <div class="p-5 rounded">
@@ -5,13 +8,17 @@
   </div>
   <h2>Servicios</h2>
 
-  <div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-3" style="">
     {{#if servicios_db}}
       {{#each servicios_db}}
 
         <div class="col">
           <div class="card">
-            <img src="assets/img/{{foto}}" class="card-img-top" alt="..." />
+            <img
+              src="assets/img/{{foto}}"
+              class="card-img-top imgindex"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">{{title}}</h5>
               <p class="card-text">
@@ -40,13 +47,17 @@
   </a>
   <br /><br />
   <h2>Ordenadores</h2>
-  <div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="row row-cols-1 row-cols-md-3 g-3">
     {{#if products}}
       {{#each products}}
 
         <div class="col">
           <div class="card">
-            <img src="assets/img/{{foto}}" class="card-img-top" alt="..." />
+            <img
+              src="assets/img/{{foto}}"
+              class="card-img-top imgindex"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title">{{title}}</h5>
               <p class="card-text">
